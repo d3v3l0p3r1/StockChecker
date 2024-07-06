@@ -1,11 +1,11 @@
 ﻿using StockCollector.ReditApi.Abstractions;
 
-public class RedditProcessor
+public class RedditProcessor : IRedditProcessor
 {
     private readonly IRepository _repository;
-    private readonly IReditClient _reditClient;
+    private readonly IRedditClient _reditClient;
 
-    public RedditProcessor(IRepository repository, IReditClient reditClient)
+    public RedditProcessor(IRepository repository, IRedditClient reditClient)
     {
         _repository = repository;
         _reditClient = reditClient;
@@ -19,12 +19,12 @@ public class RedditProcessor
 
             foreach (var ticker in tickers)
             {
-                var tickerRecord = new TickerRecord 
-                { 
-                    Name = ticker.Ticker, 
-                    NumberOfComments = ticker.NumberOfComments, 
-                    Sentiment = ticker.Sentiment, 
-                    SentimentScore = ticker.SentimentScore 
+                var tickerRecord = new TickerRecord
+                {
+                    Name = ticker.Ticker,
+                    NumberOfComments = ticker.NumberOfComments,
+                    Sentiment = ticker.Sentiment,
+                    SentimentScore = ticker.SentimentScore
                 };
 
                 _repository.SaveTicker(tickerRecord.Name);

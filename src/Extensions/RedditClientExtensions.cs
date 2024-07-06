@@ -8,11 +8,11 @@ using System.Net;
 
 namespace StockCollector.Extensions
 {
-    public static class ReditClientExtensions
+    public static class RedditClientExtensions
     {
         public static IServiceCollection AddReditClient(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddHttpClient<IReditClient, ReditClient>()
+            serviceCollection.AddHttpClient<IRedditClient, RedditClient>()
              .AddPolicyHandler(GetRpsPolicy(serviceCollection));
             return serviceCollection;
         }
@@ -35,7 +35,7 @@ namespace StockCollector.Extensions
                     },
                     onRetryAsync: async (e, ts, i, ctx) =>
                     {
-                        var logger = serviceCollection.BuildServiceProvider().GetService<ILogger<IReditClient>>();
+                        var logger = serviceCollection.BuildServiceProvider().GetService<ILogger<IRedditClient>>();
 
                         logger.LogError($"Too many requests (429) RETRY {i}");
                     });

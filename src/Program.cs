@@ -11,31 +11,28 @@ public class Program
         var serviceProvider = BuildApplication();
 
         using var scope = serviceProvider.CreateScope();
-        var reditProcessor = scope.ServiceProvider.GetService<RedditProcessor>();
+        var reditProcessor = scope.ServiceProvider.GetService<IRedditProcessor>();
         await reditProcessor.ProcessAsync(new DateOnly(2023, 4, 1), new DateOnly(2023, 7, 1));
     }
-
 
     public static ServiceProvider BuildApplication()
     {
         var serviceCollection = new ServiceCollection();
 
-        serviceCollection.AddTransient<RedditProcessor>();
-        serviceCollection.AddTransient<IReditClient, ReditClient>();
+        serviceCollection.AddTransient<IRedditProcessor, RedditProcessor>();
+        serviceCollection.AddTransient<IRedditClient, RedditClient>();
         serviceCollection.AddTransient<IRepository, Repository>();
 
         serviceCollection.AddReditClient();
 
-        serviceCollection.AddLogging(loggingBuilder => 
+        serviceCollection.AddLogging(loggingBuilder =>
         {
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.Console()
                     .CreateLogger();
 
-            loggingBuilder.AddSerilog(dispose: true); 
+            loggingBuilder.AddSerilog(dispose: true);
         });
-
-        
 
         return serviceCollection.BuildServiceProvider();
     }

@@ -4,12 +4,12 @@ using StockCollector.ReditApi.Dtos;
 
 namespace StockCollector.ReditApi.Implementations
 {
-    public class ReditClient : IReditClient
+    public class RedditClient : IRedditClient
     {
         private readonly HttpClient _httpClient;
         private string apiUrlBase = $"https://tradestie.com/api/v1/apps/reddit?date=";
 
-        public ReditClient(HttpClient httpClient)
+        public RedditClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

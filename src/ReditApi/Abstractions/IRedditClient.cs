@@ -2,7 +2,7 @@
 
 namespace StockCollector.ReditApi.Abstractions
 {
-    public interface IReditClient
+    public interface IRedditClient
     {
         Task<List<ResponseData>> GetData(DateOnly date);
     }
