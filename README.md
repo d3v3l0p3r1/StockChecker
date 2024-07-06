@@ -29,8 +29,10 @@ I have identified 3 main entities.
 The level of access to the data. In the IRepository abstraction, I encapsulate all the logic for storing and changing data.
 	
 ### API client
-In the IRedditClient, I encapsulate the logic of the request in an external system. Polling has also been added to this client. 
+In the [IRedditClient](src/ReditApi/Abstractions/IRedditClient.cs), I encapsulate the logic of the request in an external system. Polling has also been added to this client. 
 A retry and request rate limit has also been added to this client.
 	
 ### Processors
 The processor contains logic for processing data from IRedditClient and also storing data in IRepository.
+
+## Summary
