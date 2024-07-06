@@ -23,16 +23,18 @@ Provide a summary of your code changes as well as future improvement ideas for t
 The initial implementation is written in a procedural style. The procedural style can be used if it is proof of conept. if the program will always be used, then you will need to make changes. Making changes to the program is more difficult. It is much easier to make changes to OOP-style programs.
 
 ## My implementation
-I have identified 3 main entities.
+I have identified 3 main entities. I also added IOC for DI, Serilog for logging. 
 
 ### DAL
-The level of access to the data. In the IRepository abstraction, I encapsulate all the logic for storing and changing data.
+The level of access to the data. In the [IRepository](src/DAL/Abstractions/IRepository.cs) abstraction, I encapsulate all the logic for storing and changing data.
 	
 ### API client
 In the [IRedditClient](src/ReditApi/Abstractions/IRedditClient.cs), I encapsulate the logic of the request in an external system. Polling has also been added to this client. 
 A retry and request rate limit has also been added to this client.
 	
 ### Processors
-The processor contains logic for processing data from IRedditClient and also storing data in IRepository.
+The [processor](src/Processors/IRedditProcessor.cs) contains logic for processing data from IRedditClient and also storing data in IRepository.
 
-## Summary
+## Fixed errors
+### Error when the ticker should sum up the amount
+### Error due to missing fields
