@@ -25,11 +25,12 @@ The initial implementation is written in a procedural style. The procedural styl
 ## My implementation
 I have identified 3 main entities.
 
-    ### DAL
-	The level of access to the data. In the IRepository abstraction, I encapsulate all the logic for storing and changing data.
+### DAL
+The level of access to the data. In the IRepository abstraction, I encapsulate all the logic for storing and changing data.
 	
-	### API client
-	In the IRedditClient, I encapsulate the logic of the request in an external system. Polling has also been added to this client. A retry and request rate limit has also been added to this client.
+### API client
+In the IRedditClient, I encapsulate the logic of the request in an external system. Polling has also been added to this client. 
+A retry and request rate limit has also been added to this client.
 	
-	### Processors
-	The processor contains logic for processing data from IRedditClient and also storing data in IRepository.	
+### Processors
+The processor contains logic for processing data from IRedditClient and also storing data in IRepository.
