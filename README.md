@@ -36,5 +36,9 @@ A retry and request rate limit has also been added to this client.
 The [processor](src/Processors/IRedditProcessor.cs) contains logic for processing data from IRedditClient and also storing data in IRepository.
 
 ## Fixed errors
-### Error when the ticker should sum up the amount
-### Error due to missing fields
+- Error when the ticker should sum up the amount
+- Error due to missing fields
+
+### Summary
+My implementation makes the code easy to maintain. Unit tests can now be added to the code, replace implementations with mockups. Changes can now be made to a separate file. 
+Changes can now be made to a separate file. This preserves the single responsibility principle.
