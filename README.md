@@ -1,6 +1,6 @@
 # StockChecker
 
-##Instructions:
+## Instructions:
 In the shared folder you will find a zipped Visual Studio solution.
 
 In the solution you will find a console application which is extracting data which indicates the most mentioned stocks on Reddit for use in predicting trader sentiment.
@@ -19,17 +19,17 @@ Make at least the most critical improvements to the code as needed. (including b
 If you’re inclined to show all of your ideas in code, change however much you require.
 Provide a summary of your code changes as well as future improvement ideas for the developer.
 
-##Initial implementation
+## Initial implementation
 The initial implementation is written in a procedural style. The procedural style can be used if it is proof of conept. if the program will always be used, then you will need to make changes. Making changes to the program is more difficult. It is much easier to make changes to OOP-style programs.
 
-##My implementation
+## My implementation
 I have identified 3 main entities.
 
-    ###DAL
+    ### DAL
 	The level of access to the data. In the IRepository abstraction, I encapsulate all the logic for storing and changing data.
 	
-	###API client
+	### API client
 	In the IRedditClient, I encapsulate the logic of the request in an external system. Polling has also been added to this client. A retry and request rate limit has also been added to this client.
 	
-	###Processors
+	### Processors
 	The processor contains logic for processing data from IRedditClient and also storing data in IRepository.	
